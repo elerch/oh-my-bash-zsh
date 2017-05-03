@@ -7,12 +7,6 @@ autoload -U compaudit compinit
 
 : ${ZSH_DISABLE_COMPFIX:=true}
 
-# Set ZSH_CUSTOM to the path where your custom config files
-# and plugins exists, or else we will use the default custom/
-if [[ -z "$ZSH_CUSTOM" ]]; then
-    ZSH_CUSTOM="$ZSH/custom"
-fi
-
 # Set ZSH_CACHE_DIR to the path where cache files should be created
 # or else we will use the default cache/
 if [[ -z "$ZSH_CACHE_DIR" ]]; then
@@ -54,8 +48,6 @@ else
   compinit -i -d "${ZSH_COMPDUMP}"
 fi
 
-# Load all of your custom configurations from custom/
-for config_file ($ZSH_CUSTOM/*.zsh(N)); do
-  source $config_file
-done
-unset config_file
+# AWS is special and needs to be run at the very end, no matter what
+# see: https://github.com/aws/aws-cli/issues/1819
+source $ZSH/lib-postcomp/aws.zsh
