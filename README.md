@@ -5,12 +5,12 @@
 Oh My Zsh is an open source, community-driven framework for managing your [zsh](http://www.zsh.org/) configuration.
 
 This project is a vastly-reduced version of this framework, with lots of stuff
-thrown over the side. There is planned support for Bash as well since this
+thrown over the side. There is support for Bash as well since this
 slimmed down version is already mostly bash-compatible.
 
 Once installed, your terminal shell will become the talk of the town _or your money back!_
-With each keystroke in your command prompt, you'll take advantage of the -hundreds-
-few of powerful plugins -and beautiful themes-. Strangers will come up to you in
+With each keystroke in your command prompt, you'll take advantage of the ~~hundreds~~
+few of powerful plugins ~~and beautiful themes~~ Strangers will come up to you in
 cafés and ask you, _"that is amazing! are you some sort of genius?"_
 
 Finally, you'll begin to get the sort of attention that you have always felt
@@ -32,17 +32,16 @@ __Disclaimer:__ _Oh My Zsh works best on macOS and Linux._
 Oh My Zsh is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`.
 
 ```shell
-git clone git@github.com:elerch/oh-my-zsh.git .oh-my-zsh
+git clone git@github.com:elerch/oh-my-bash-zsh.git .oh-my-bash-zsh
 ```
-Then add "source .oh-my-zsh/oh-my-zsh" to the bottom of your .zshrc file
-(when bash support comes in most of this will change)
+Then add "source .oh-my-zsh/oh-my-bash-zsh.sh" to the bottom of your .zshrc file and .bashrc
 
 ## Using Oh My Zsh
 
 ### Plugins
 
-Oh My Zsh comes with a shit load of plugins to take advantage of. I've removed
-them all. If you want any, take a look at the [plugins](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)
+Oh My Zsh comes with a shit load of plugins to take advantage of. **I've removed
+them all**. If you want any, take a look at the [plugins](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)
 directory of the original project. Most of them are just a bunch of aliases and
 stuff, but if you find something useful, throw them in the lib directory of 
 your local clone. Please don't look at the [wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins) -
@@ -53,7 +52,7 @@ much in there you probably won't get stepped on.
 
 ## Getting Updates
 
-By default, you will -not- be prompted to check for upgrades every few weeks.
+By default, you will ~~not~~ be prompted to check for upgrades every few weeks.
 I've removed all that completely. If you want automatic upgrades, add a cron
 job to do a git pull or something.
 
