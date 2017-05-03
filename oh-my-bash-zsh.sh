@@ -12,7 +12,7 @@ fi
 
 # Load all of the config files in lib/ that end in .sh (ZSH specific stuff later)
 # TIP: Add files you don't want in git to .gitignore
-[ -r $DIR/lib/*.sh ] && for config_file in $DIR/lib/*.sh; do
+for config_file in $DIR/lib/*.sh; do
   custom_config_file="${CUSTOM}/lib/${config_file:t}"
   [ -f "${custom_config_file}" ] && config_file=${custom_config_file}
   source $config_file

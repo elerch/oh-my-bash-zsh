@@ -25,4 +25,8 @@ alias grep="grep $GREP_OPTIONS"
 # clean up
 unset GREP_OPTIONS
 unset VCS_FOLDERS
-unfunction grep-flag-available
+if [ -n "$BASH_VERSION" ]; then
+  unset -f grep-flag-available
+else
+  unfunction grep-flag-available
+fi
