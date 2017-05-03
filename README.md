@@ -52,7 +52,7 @@ much in there you probably won't get stepped on.
 
 ## Getting Updates
 
-By default, you will ~~not~~ be prompted to check for upgrades every few weeks.
+By default, you will **not** be prompted to check for upgrades every few weeks.
 I've removed all that completely. If you want automatic upgrades, add a cron
 job to do a git pull or something.
 
