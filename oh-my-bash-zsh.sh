@@ -44,6 +44,12 @@ if [[ -z "$ZSH_CACHE_DIR" ]]; then
   ZSH_CACHE_DIR="$DIR/cache"
 fi
 
+# Load all of the config files in lib/ that end in .zsh
+for config_file in $DIR/lib/*.zsh; do
+  custom_config_file="${CUSTOM}/lib/${config_file:t}"
+  [ -f "${custom_config_file}" ] && config_file=${custom_config_file}
+  source $config_file
+done
 
 # Save the location of the current completion dump file.
 if [ -z "$ZSH_COMPDUMP" ]; then
