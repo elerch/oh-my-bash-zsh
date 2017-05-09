@@ -27,12 +27,18 @@ function aws_profiles {
 
 compctl -K aws_profiles asp
 
-if _homebrew-installed && _awscli-homebrew-installed ; then
-  _aws_zsh_completer_path=$(brew --prefix awscli)/libexec/bin/aws_zsh_completer.sh
-else
-  if hash aws_zsh_completer.sh 2> /dev/null; then
+# This is the default install location for homebrew. brew and
+# brew list are very slow, so we'll check the default path first
+if [ -r "/usr/local/opt/awscli/libexec/bin/aws_zsh_completer.sh" ]; then
+   # Mac
+  _aws_zsh_completer_path="/usr/local/opt/awscli/libexec/bin/aws_zsh_completer.sh"
+elif [ -r "/usr/share/zsh/site-functions/aws_zsh_completer.sh" ]; then
+  # Amazon linux
+  _aws_zsh_completer_path="/usr/share/zsh/site-functions/aws_zsh_completer.sh"
+elif hash aws_zsh_completer.sh 2> /dev/null; then
     _aws_zsh_completer_path=$(which aws_zsh_completer.sh)
-  fi
+elif _homebrew-installed && _awscli-homebrew-installed ; then
+  _aws_zsh_completer_path=$(brew --prefix awscli)/libexec/bin/aws_zsh_completer.sh
 fi
 
 [ -x "$_aws_zsh_completer_path" ] && source $_aws_zsh_completer_path
