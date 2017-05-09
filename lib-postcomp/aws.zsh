@@ -41,5 +41,5 @@ elif _homebrew-installed && _awscli-homebrew-installed ; then
   _aws_zsh_completer_path=$(brew --prefix awscli)/libexec/bin/aws_zsh_completer.sh
 fi
 
-[ -x "$_aws_zsh_completer_path" ] && source $_aws_zsh_completer_path
+[ -r "$_aws_zsh_completer_path" ] && source $_aws_zsh_completer_path
 [ ! -z "$_aws_zsh_completer_path" ] && unset _aws_zsh_completer_path
