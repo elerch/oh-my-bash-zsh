@@ -27,9 +27,14 @@ function aws_profiles {
 
 compctl -K aws_profiles asp
 
+# aws_zsh_container_completer has a small enhancement to handle completions
+# through a container - this script is a fork of the AWS-provided script
+# that adds this
+if hash aws_zsh_container_completer.sh 2> /dev/null; then
+    _aws_zsh_completer_path=$(which aws_zsh_container_completer.sh)
 # This is the default install location for homebrew. brew and
 # brew list are very slow, so we'll check the default path first
-if [ -r "/usr/local/opt/awscli/libexec/bin/aws_zsh_completer.sh" ]; then
+elif [ -r "/usr/local/opt/awscli/libexec/bin/aws_zsh_completer.sh" ]; then
    # Mac
   _aws_zsh_completer_path="/usr/local/opt/awscli/libexec/bin/aws_zsh_completer.sh"
 elif [ -r "/usr/share/zsh/site-functions/aws_zsh_completer.sh" ]; then
